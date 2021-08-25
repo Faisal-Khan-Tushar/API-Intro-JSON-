@@ -49,6 +49,22 @@ patch->if I am wounded and I patch myself, or in technicl term, if I updated som
 
 delete->if I delete something.
 */
+
+function addAPost2() {
+  fetch('https://jsonplaceholder.typicode.com/pasts', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'This is a title',
+      body: 'This is the body of the title',
+      userId: 1
+    }),
+    hearders: {
+      'Content-type': 'application/json; charset=UTF-8',
+    }
+  })
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
 function addAPost() {
   fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
