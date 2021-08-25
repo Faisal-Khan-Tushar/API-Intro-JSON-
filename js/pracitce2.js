@@ -39,3 +39,28 @@ function displayPosts(posts) {
   }
 
 }
+//get,post,patch,delete
+/*
+get->get means if someone posts something on facebook, and I see it with my browser, that means I am getting their data that they have sent to the sever.This is called the get procedure.
+
+post->if I post something on my wall & eventually they will be sent to facebook servers. When anyone else will see my posts they will get the data & I have posted the data in this regard.
+
+patch->if I am wounded and I patch myself, or in technicl term, if I updated something, then it is called patching.
+
+delete->if I delete something.
+*/
+function addAPost() {
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'This is a title',
+      body: 'This is the body of the title',
+      userId: 1
+    }),
+    hearders: {
+      'Content-type': 'application/json; charset=UTF-8',
+    }
+  })
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
